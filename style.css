@@ -1,77 +1,149 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Calculator</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-   
-    <div id="calculator">
-        <h1>Calculator</h1>
-        <div id="display-container">
-            <div id="previous-display"></div>
-            <div id="current-display"></div>
-        </div>
-        <div id="buttons-container">
-            <div class="button" id="button-clear" data-value="ac">
-                <span>AC</span>
-            </div>
-            <div class="button" id="button-sign" data-value="sign">
-                <span>+/-</span>
-            </div>
-            <div class="button" id="button-percent" data-value="%">
-                <span> % </span>
-            </div>
-            <div class="button red" data-value="/" id="button-divide">
-                <span> / </span>
-            </div>
-            <div class="button" id="button-seven" data-value="7">
-                <span>7</span>
-            </div>
-            <div class="button" id="button-eight" data-value="8">
-                <span>8</span>
-            </div>
-            <div class="button" id="button-nine" data-value="9">
-                <span>9</span>
-            </div>
-            <div class="button red" id="button-multiply" data-value="*">
-                <span>*</span>
-            </div>
-            <div class="button" id="button-four" data-value="4">
-                <span>4</span>
-            </div>
-            <div class="button" id="button-five" data-value="5">
-                <span>5</span>
-            </div>
-            <div class="button" id="button-six" data-value="6">
-                <span>6</span>
-            </div>
-            <div class="button red" id="button-minus" data-value="-">
-                <span>-</span>
-            </div>
-            <div class="button" id="button-one" data-value="1">
-                <span> 1 </span>
-            </div>
-            <div class="button" id="button-two" data-value="2">
-                <span> 2 </span>
-            </div>
-            <div class="button" id="button-three" data-value="3">
-                <span> 3 </span>
-            </div>
-            <div class="button red" id="button-plus" data-value="+">
-                <span> + </span>
-            </div>
-            <div class="button" id="button-zero" data-value="0">
-                <span> 0 </span>
-            </div>
-            <div class="button" id="button-decimal" data-value=".">
-                <span> . </span>
-            </div>
-            <div class="button red" id="button-equals" data-value="=">
-                <span> = </span>
-            </div>
-        </div>
-    </div>
-    <script type="text/javascript" src="function.js"></script>
-</body>
-<html>
+* {
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand';
+  word-spacing: 2px;
+  font-weight: 600;
+}
+
+body{
+  background-image: linear-gradient( to bottom right, rgba(79,51,176,1.0),rgba(210,53,165));
+}
+:root {
+  --border-radius: 5px;
+  --border-width: 1px;
+  --light-grey: #e2e0e0;
+  --blue: #7f6cfc;
+  --orange: #ffc877;
+  --red: #c14444;
+}
+
+.calculator {
+  margin: auto;
+  padding: 10px;
+  width: 30%;
+  height: 70%;
+  background-color: rgb(255, 207, 153,0.4);
+  border: 2px solid var(--light-grey);
+  border-radius: var(--border-radius);
+  border: 2px solid black;
+}
+.calculator button{
+  margin-left: 38%;
+  border-radius: var(--border-radius);
+  padding: 2px;
+}
+.light{
+  background-color: black;
+  color: white;   
+  cursor: pointer;
+}
+.dark-button{
+  background-color: aliceblue;
+  color: black;
+  cursor: pointer;
+}
+h1 {
+  background-color: #2d191e;
+  word-spacing: 14px;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 8px;
+  border-radius: var(--border-radius);
+}
+/* To be added in h1 */
+.dark-h1{
+  background-color: rgb(248, 229, 176);
+  color: black;
+}
+.dark-bg{
+  /* To be added in first outer div */
+  background-color: rgb(11, 11, 11,0.8);
+  border: 2px solid white;
+}
+
+#display-container {
+  margin-bottom: 5px;
+  width: 100%;
+  height: 20%;
+  min-height: 80px;
+  color: var(--blue);
+  background-color: whitesmoke;
+  font-size: 2rem;
+  border-radius: 20%; 
+}
+#previous-display{
+  width: 100%;
+  height: 50%;
+  min-height: 40px;
+  display: flex;  
+  align-items: flex-end;
+  justify-content: flex-end;
+  background-color: rgb(229, 253, 253);
+}
+#current-display{
+  width: 100%;
+  height: 50%;
+  min-height: 40px;
+  background-color: rgb(238, 250, 217);
+  display: flex;  
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+#buttons-container {
+  width: 100%;
+  height: 60%;
+  min-height: 250px;
+  border: var(--border-width) solid var(--light-grey);
+  border-radius: var(--border-radius);
+  background-color: var(--light-grey);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.button {
+  border-radius: 20px;
+  width: 25%;
+  height: 20%;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-width) solid var(--light-grey);
+  background-color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition-duration: 1s;
+  
+}
+
+.button:hover {
+  background-color: var(--orange);
+  transform: scale(1.05);
+}
+.cancel-button{
+  color: #fc4552;
+  background-color: #ffd5d8;
+}
+.operator{
+  color: #ff29f8;
+  background-color: #ffd0fd;
+}
+.number{
+  /* color: #ff29f8; */
+  background-color: #c3eaff;
+}
+.equal{
+  background-color: #adf9e7;
+}
+.red {
+  background-color: var(--red);
+  color: white;
+}
+
+#button-zero {
+  width: 50%;
+}
